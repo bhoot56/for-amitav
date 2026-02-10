@@ -2,119 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For Amitav ❤️</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #fff0f3;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            touch-action: manipulation;
-        }
-
-        .card {
-            text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(255, 75, 110, 0.2);
-            position: relative;
-            width: 350px;
-            min-height: 450px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 {
-            color: #ff4b6e;
-            font-size: 28px;
-            margin-bottom: 30px;
-            line-height: 1.4;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 20px;
-            width: 100%;
-            justify-content: center;
-            position: relative;
-            height: 100px;
-        }
-
-        button {
-            padding: 12px 25px;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        #yesBtn {
-            background-color: #ff4b6e;
-            color: white;
-        }
-
-        #noBtn {
-            background-color: #fce4ec;
-            color: #ff4b6e;
-            position: absolute;
-            z-index: 999;
-        }
-
-        .cat-gif {
-            width: 200px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-        }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #fff0f3; font-family: 'Arial', sans-serif; overflow: hidden; touch-action: none; }
+        .card { text-align: center; background: white; padding: 30px; border-radius: 30px; box-shadow: 0 15px 35px rgba(255, 75, 110, 0.2); position: relative; width: 85vw; max-width: 350px; min-height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        h1 { color: #ff4b6e; font-size: 24px; margin-bottom: 30px; line-height: 1.4; pointer-events: none; }
+        .btn-group { display: flex; gap: 20px; width: 100%; justify-content: center; position: relative; height: 150px; align-items: flex-start; }
+        button { padding: 12px 25px; font-size: 18px; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; }
+        #yesBtn { background-color: #ff4b6e; color: white; }
+        #noBtn { background-color: #fce4ec; color: #ff4b6e; position: absolute; transition: 0.1s ease; touch-action: none; }
+        .cat-gif { width: 180px; margin-bottom: 20px; border-radius: 15px; pointer-events: none; }
     </style>
 </head>
 <body>
-
     <div class="card" id="card">
-        <img src="https://media.tenor.com/7S8f4N2_5pYAAAAi/tkthao219-bubududu.gif" class="cat-gif" alt="Cute Cat">
-        
+        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Smiling%20Face%20with%20Hearts.png" class="cat-gif">
         <h1 id="mainHeading">Amitav will you be my valentine?</h1>
-        
-        <div class="btn-group">
+        <div class="btn-group" id="container">
             <button id="yesBtn" onclick="celebrate()">Yes</button>
-            <button id="noBtn" onmouseover="moveNo()" onclick="moveNo()">No</button>
+            <button id="noBtn">No</button>
         </div>
     </div>
-
     <script>
-        function moveNo() {
-            const noBtn = document.getElementById('noBtn');
-            const card = document.getElementById('card');
-            
-            // This ensures the button stays within the card boundaries
-            const padding = 50;
-            const maxX = card.clientWidth - noBtn.clientWidth - padding;
-            const maxY = card.clientHeight - noBtn.clientHeight - padding;
+        const noBtn = document.getElementById('noBtn');
+        const container = document.getElementById('container');
 
-            const randomX = Math.floor(Math.random() * maxX) + 10;
-            const randomY = Math.floor(Math.random() * maxY) + 10;
+        function moveButton(e) {
+            e.preventDefault(); 
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
 
-            noBtn.style.left = randomX + "px";
-            noBtn.style.top = randomY + "px";
+            const maxX = containerRect.width - btnRect.width;
+            const maxY = containerRect.height - btnRect.height;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
         }
 
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('touchstart', moveButton);
+        noBtn.addEventListener('click', moveButton);
+
         function celebrate() {
-            const card = document.getElementById('card');
-            card.innerHTML = `
-                <img src="https://media.tenor.com/U0967O_9v8MAAAAi/peach-goma.gif" class="cat-gif">
-                <h1 style="color: #ff4b6e; font-size: 32px;">YAY, I WOVE YOU, WOOBELIE</h1>
+            document.getElementById('card').innerHTML = `
+                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Party%20Popper.png" class="cat-gif">
+                <h1 style="color: #ff4b6e; font-size: 28px;">YAY, I LOVE YOU, WOOBELIE</h1>
                 <p style="color: #ff4b6e;">❤️✨🎈</p>
             `;
         }
     </script>
 </body>
 </html>
+       
+        
+            
