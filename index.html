@@ -12,12 +12,12 @@
         button { padding: 12px 25px; font-size: 18px; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; }
         #yesBtn { background-color: #ff4b6e; color: white; }
         #noBtn { background-color: #fce4ec; color: #ff4b6e; position: absolute; transition: 0.1s ease; touch-action: none; }
-        .cat-gif { width: 180px; margin-bottom: 20px; border-radius: 15px; pointer-events: none; }
+        .valentine-img { width: 180px; margin-bottom: 20px; border-radius: 15px; pointer-events: none; }
     </style>
 </head>
 <body>
     <div class="card" id="card">
-        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Smiling%20Face%20with%20Hearts.png" class="cat-gif">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=500&auto=format&fit=crop" class="valentine-img" alt="Hearts">
         <h1 id="mainHeading">Amitav will you be my valentine?</h1>
         <div class="btn-group" id="container">
             <button id="yesBtn" onclick="celebrate()">Yes</button>
@@ -32,13 +32,10 @@
             e.preventDefault(); 
             const containerRect = container.getBoundingClientRect();
             const btnRect = noBtn.getBoundingClientRect();
-
             const maxX = containerRect.width - btnRect.width;
             const maxY = containerRect.height - btnRect.height;
-
             const randomX = Math.floor(Math.random() * maxX);
             const randomY = Math.floor(Math.random() * maxY);
-
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
         }
@@ -49,7 +46,7 @@
 
         function celebrate() {
             document.getElementById('card').innerHTML = `
-                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Party%20Popper.png" class="cat-gif">
+                <img src="https://images.unsplash.com/photo-1516589174184-c685266d4af4?q=80&w=500&auto=format&fit=crop" class="valentine-img">
                 <h1 style="color: #ff4b6e; font-size: 28px;">YAY, I LOVE YOU, WOOBELIE</h1>
                 <p style="color: #ff4b6e;">❤️✨🎈</p>
             `;
