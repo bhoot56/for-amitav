@@ -13,6 +13,7 @@
         #yesBtn { background-color: #ff4b6e; color: white; }
         #noBtn { background-color: #fce4ec; color: #ff4b6e; position: absolute; transition: 0.1s ease; touch-action: none; }
         .valentine-img { width: 180px; margin-bottom: 20px; border-radius: 15px; pointer-events: none; }
+        .heart-icon { font-size: 80px; margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -46,9 +47,9 @@
 
         function celebrate() {
             document.getElementById('card').innerHTML = `
-                <img src="https://images.unsplash.com/photo-1516589174184-c685266d4af4?q=80&w=500&auto=format&fit=crop" class="valentine-img">
+                <div class="heart-icon">❤️</div>
                 <h1 style="color: #ff4b6e; font-size: 28px;">YAY, I LOVE YOU, WOOBELIE</h1>
-                <p style="color: #ff4b6e;">❤️✨🎈</p>
+                <p style="color: #ff4b6e; font-size: 18px;">Can't wait to spend the day with you! ✨🎈</p>
             `;
         }
     </script>
